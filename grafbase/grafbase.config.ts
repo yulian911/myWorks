@@ -12,6 +12,7 @@ const User = g
 
     // @ts-ignore
     projects: g
+      // @ts-ignore
       .relation(() => Project)
       .list()
       .optional(),
@@ -26,8 +27,8 @@ const Project = g
     title: g.string().length({ min: 3 }),
     description: g.string(),
     image: g.url(),
-    liveSiteUrl: g.url(),
-    githubUrl: g.url(),
+    liveSiteUrl: g.url().optional(),
+    githubUrl: g.url().optional(),
     category: g.string().search(),
     createdBy: g.relation(() => User),
   })

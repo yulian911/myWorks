@@ -9,6 +9,7 @@ import RelatedProjects from '@/components/RelatedProjects';
 import { ProjectInterface } from '@/common.types';
 import { Github, ScreenShare } from 'lucide-react';
 import Button from '@/components/Button';
+import { shimmer, toBase64 } from '@/lib/utils';
 
 const Project = async ({ params: { id } }: { params: { id: string } }) => {
   const session = await getCurrentUser();
@@ -55,15 +56,17 @@ const Project = async ({ params: { id } }: { params: { id: string } }) => {
         )}
       </section>
 
-      <section className="mt-14  flex flex-col 2xl:flex-row  gap-3">
+      <section className="flex flex-col gap-3 mt-14 2xl:flex-row">
         <Image
+          placeholder="blur"
+          blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(864, 598))}`}
           src={`${projectDetails?.image}`}
           className="object-cover rounded-2xl"
           width={864}
           height={598}
           alt="poster"
         />
-        <div className='className="flex-col  flexCenter"'>
+        <div className='className="flex-col flexCenter"'>
           <p className="self-start text-lg font-semibold">{projectDetails?.title}</p>
           <p className="max-w-5xl text-xl font-normal">{projectDetails?.description}</p>
 
@@ -74,7 +77,7 @@ const Project = async ({ params: { id } }: { params: { id: string } }) => {
                   href={projectDetails?.githubUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="gap-2 font-medium  flexCenter tex-sm text-primary-purple">
+                  className="gap-2 font-medium flexCenter tex-sm text-primary-purple">
                   <Button type="button">
                     <Github />
                     <span>Github</span>

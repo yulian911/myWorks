@@ -25,8 +25,8 @@ const ProjectForm = ({ type, session, project }: Props) => {
     title: project?.title || '',
     description: project?.description || '',
     image: project?.image || '',
-    liveSiteUrl: project?.liveSiteUrl || '',
-    githubUrl: project?.githubUrl || '',
+    liveSiteUrl: project?.liveSiteUrl || null,
+    githubUrl: project?.githubUrl || null,
     category: project?.category || '',
   });
 

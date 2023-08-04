@@ -1,5 +1,6 @@
 'use client';
 
+import { shimmer, toBase64 } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -26,6 +27,8 @@ const ProjectCard = ({ id, image, title, name, avatarUrl, userId }: Props) => {
     <div className="flex-col flexCenter rounded-2xl drop-shadow-card">
       <Link href={`/project/${id}`} className="relative w-full h-full flexCenter group">
         <Image
+          placeholder="blur"
+          blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(414, 314))}`}
           src={image}
           width={414}
           height={314}
