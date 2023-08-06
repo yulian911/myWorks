@@ -1,25 +1,25 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from 'next/image'
+import Link from 'next/link'
 
-import { getCurrentUser } from '@/lib/session';
-import { getProjectDetails } from '@/lib/actions';
-import Modal from '@/components/Modal';
-import ProjectActions from '@/components/ProjectActions';
-import RelatedProjects from '@/components/RelatedProjects';
-import { ProjectInterface } from '@/common.types';
-import { Github, ScreenShare } from 'lucide-react';
-import Button from '@/components/Button';
-import { shimmer, toBase64 } from '@/lib/utils';
+import { getCurrentUser } from '@/lib/session'
+import { getProjectDetails } from '@/lib/actions'
+import Modal from '@/components/Modal'
+import ProjectActions from '@/components/ProjectActions'
+import RelatedProjects from '@/components/RelatedProjects'
+import { ProjectInterface } from '@/common.types'
+import { Github, ScreenShare } from 'lucide-react'
+import Button from '@/components/Button'
+import { shimmer, toBase64 } from '@/lib/utils'
 
 const Project = async ({ params: { id } }: { params: { id: string } }) => {
-  const session = await getCurrentUser();
-  const result = (await getProjectDetails(id)) as { project?: ProjectInterface };
+  const session = await getCurrentUser()
+  const result = (await getProjectDetails(id)) as { project?: ProjectInterface }
 
-  if (!result?.project) return <p className="no-result-text">Failed to fetch project info</p>;
+  if (!result?.project) return <p className="no-result-text">Failed to fetch project info</p>
 
-  const projectDetails = result?.project;
+  const projectDetails = result?.project
 
-  const renderLink = () => `/profile/${projectDetails?.createdBy?.id}`;
+  const renderLink = () => `/profile/${projectDetails?.createdBy?.id}`
 
   return (
     <Modal>
@@ -61,7 +61,7 @@ const Project = async ({ params: { id } }: { params: { id: string } }) => {
           placeholder="blur"
           blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(864, 598))}`}
           src={`${projectDetails?.image}`}
-          className="object-cover rounded-2xl"
+          className=" rounded-2xl max-h-[500px]"
           width={864}
           height={598}
           alt="poster"
@@ -140,7 +140,7 @@ const Project = async ({ params: { id } }: { params: { id: string } }) => {
 
       <RelatedProjects userId={projectDetails?.createdBy?.id} projectId={projectDetails?.id} />
     </Modal>
-  );
-};
+  )
+}
 
-export default Project;
+export default Project
