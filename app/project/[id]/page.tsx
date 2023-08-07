@@ -66,7 +66,7 @@ const Project = async ({ params: { id } }: { params: { id: string } }) => {
           height={598}
           alt="poster"
         />
-        <div className='className="flex-col flexCenter"'>
+        <div className='flex-col flexCenter"'>
           <p className="self-start text-lg font-semibold">{projectDetails?.title}</p>
           <p className="max-w-5xl text-xl font-normal">{projectDetails?.description}</p>
 
