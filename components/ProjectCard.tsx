@@ -1,38 +1,38 @@
-'use client'
+'use client';
 
-import { shimmer, toBase64 } from '@/lib/utils'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { shimmer, toBase64 } from '@/lib/utils';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 type Props = {
-  id: string
-  image: string
-  title: string
-  name: string
-  avatarUrl: string
-  userId: string
-}
+  id: string;
+  image: string;
+  title: string;
+  name: string;
+  avatarUrl: string;
+  userId: string;
+};
 
 const ProjectCard = ({ id, image, title, name, avatarUrl, userId }: Props) => {
-  const [randomLikes, setRandomLikes] = useState(0)
-  const [randomViews, setRandomViews] = useState('')
+  const [randomLikes, setRandomLikes] = useState(0);
+  const [randomViews, setRandomViews] = useState('');
 
   useEffect(() => {
-    setRandomLikes(Math.floor(Math.random() * 10000))
-    setRandomViews(String((Math.floor(Math.random() * 10000) / 1000).toFixed(1) + 'k'))
-  }, [])
+    setRandomLikes(Math.floor(Math.random() * 10000));
+    setRandomViews(String((Math.floor(Math.random() * 10000) / 1000).toFixed(1) + 'k'));
+  }, []);
 
   return (
     <div className="flex-col flexCenter rounded-2xl drop-shadow-card">
       <Link href={`/project/${id}`} className="relative w-full h-full flexCenter group">
         <Image
           placeholder="blur"
-          blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(414, 314))}`}
+          blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(414, 284))} `}
           src={image}
           width={414}
-          height={314}
-          className="max-h-[314px]  w-full h-full rounded-2xl"
+          height={284}
+          className="max-h-[284px]  rounded-2xl"
           alt="project image"
         />
 
@@ -67,7 +67,7 @@ const ProjectCard = ({ id, image, title, name, avatarUrl, userId }: Props) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProjectCard
+export default ProjectCard;
