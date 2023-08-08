@@ -28,11 +28,11 @@ const ProjectCard = ({ id, image, title, name, avatarUrl, userId }: Props) => {
       <Link href={`/project/${id}`} className="relative w-full h-full flexCenter group">
         <Image
           placeholder="blur"
-          blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(414, 284))} `}
+          blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(414, 284))}  `}
           src={image}
           width={414}
           height={284}
-          className="max-h-[284px]  rounded-2xl"
+          className=" max-h-[254px] rounded-2xl"
           alt="project image"
         />
 
