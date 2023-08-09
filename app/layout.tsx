@@ -8,7 +8,7 @@ export const metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
   icons: {
-    icon: '/logo.svg',
+    icon: '/favicon.ico',
   },
 };
 
