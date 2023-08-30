@@ -30,6 +30,22 @@ export const updateProjectMutation = `
 	}
 `;
 
+export const updateUserMutation = `
+	mutation UpdateUser($id: ID!, $input: UserUpdateInput!) {
+		userUpdate(by: { id: $id }, input: $input) {
+			user {
+				id
+        name
+        email
+				avatarUrl
+				description
+				githubUrl
+				linkedinUrl
+			}
+		}
+	}
+`;
+
 export const deleteProjectMutation = `
   mutation DeleteProject($id: ID!) {
     projectDelete(by: { id: $id }) {

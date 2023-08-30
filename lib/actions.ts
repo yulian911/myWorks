@@ -9,6 +9,7 @@ import {
   getProjectsOfUserQuery,
   getUserQuery,
   projectsQuery,
+  updateUserMutation,
 } from '@/graphql';
 import { ProjectForm } from '@/common.types';
 // npx grafbase@0.24 dev
@@ -167,6 +168,19 @@ export const updateProject = async (form: ProjectForm, projectId: string, token:
   };
 
   return makeGraphQLRequest(updateProjectMutation, variables);
+};
+export const updateUser = async (form:{name:string}, userId: string, token: string) => {
+  client.setHeader('Authorization', `Bearer ${token}`);
+  
+
+  const variables = {
+    id: userId,
+    input: {
+      name:form.name
+    }
+  };
+
+  return makeGraphQLRequest(updateUserMutation, variables);
 };
 
 export const deleteProject = (id: string, token: string) => {
