@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
+    "@next/env": "^13.4.19",
     "@react-google-maps/api": "^2.19.2",
     "@types/jsonwebtoken": "^9.0.2",
     "@types/node": "20.3.3",
