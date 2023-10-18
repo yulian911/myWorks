@@ -70,7 +70,7 @@ const ProjectForm = ({ type, session, project }: Props) => {
         // @ts-ignore
         await createNewProject(form, session?.user?.id, token);
         router.refresh();
-        router.push(`/${project?.category}`);
+        router.push(`/`);
       }
 
       if (type === 'edit') {
