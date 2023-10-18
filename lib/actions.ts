@@ -1,5 +1,5 @@
 import { GraphQLClient } from 'graphql-request';
-import { loadEnvConfig } from '@next/env';
+// import { loadEnvConfig } from '@next/env';
 
 import {
   createProjectMutation,
@@ -15,7 +15,7 @@ import {
 import { ProjectForm } from '@/common.types';
 // npx grafbase@0.24 dev
 
-loadEnvConfig(process.cwd());
+// loadEnvConfig(process.cwd());
 
 const isProduction = process.env.NODE_ENV === 'production';
 const apiUrl = isProduction

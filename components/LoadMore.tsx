@@ -23,6 +23,7 @@ const LoadMore = ({ startCursor, endCursor, hasPreviousPage, hasNextPage }: Prop
     } else if (type === 'next' && hasNextPage) {
       currentParams.delete('startcursor');
       currentParams.set('endcursor', endCursor);
+      console.log(endCursor);
     }
 
     const newSearchParams = currentParams.toString();
